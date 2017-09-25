@@ -1,4 +1,4 @@
-<h1>Page to create new article</h1>
+<h1>Page to edit existing article</h1>
 
 <% if @article.errors.any? %>
 <h2>Wystąpiły następujące błędy:</h2>
@@ -19,9 +19,8 @@
         <%= f.text_area :description %>
     </p>
     <p>
-        <%= f.submit %>
+        <%= f.submit "Edytuj" %>
     </p>
-
 <% end %>
 
 <%= link_to "Powrót do listy artykułów", articles_path %>

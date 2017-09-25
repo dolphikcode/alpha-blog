@@ -1,0 +1,19 @@
+<h1>Spis artykułów</h1>
+
+<%= link_to "Dodaj nowy artykuł", new_article_path %>
+<table style="width:100%; padding: 5px; border: 1px solid black;">
+    <tr>
+        <th>Tytuł</th>
+        <th>Opis</th>
+    </tr>
+    
+    <% @articles.each do |artykuly| %>
+        <tr>
+            <td><%= artykuly.title %></td>
+            <td><%= artykuly.description %></td>
+            <td><%= link_to "Edytuj", edit_article_path(artykuly) %></td>
+            <td><%= link_to "Pokaż", article_path(artykuly) %></td>
+        </tr>
+    <% end %>
+        
+</table>
