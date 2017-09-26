@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+   before_action :set_article, only: [:edit, :update, :destroy, :show]
    
    def index
       @articles = Article.all
@@ -9,11 +10,9 @@ class ArticlesController < ApplicationController
    end
    
    def edit
-      @article = Article.find(params[:id])
    end
    
    def update
-      @article = Article.find(params[:id])
       if @article.update(article_params)
          flash[:notice] = "Artykuł poprawnie zaktualizowany"
          redirect_to article_path(@article)
@@ -23,7 +22,6 @@ class ArticlesController < ApplicationController
    end
    
    def create
-      #render plain: params [:article].inspect 
       @article = Article.new(article_params)
       if @article.save
           flash[:notice] = "Artykuł został zapisany"
@@ -34,12 +32,21 @@ class ArticlesController < ApplicationController
       
    end
    
+   def destroy
+      @article.destroy
+      flash[:notice] = "Artykuł został skasowany"
+      redirect_to articles_path
+   end
+   
    def show
-       @article = Article.find(params[:id])
    end
    
 #===================================================================
 # Sekcja private
+   def set_article
+      @article = Article.find(params[:id])
+   end
+   
    private
    def article_params
       params.require(:article).permit(:title, :description) 

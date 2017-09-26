@@ -13,6 +13,7 @@
             <td><%= artykuly.description %></td>
             <td><%= link_to "Edytuj", edit_article_path(artykuly) %></td>
             <td><%= link_to "Pokaż", article_path(artykuly) %></td>
+            <td><%= link_to "Skasuj", article_path(artykuly), method: :delete, data: {confirm: "Jesteś pewny?"} %></td>
         </tr>
     <% end %>
         
