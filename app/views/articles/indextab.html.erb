@@ -1,0 +1,26 @@
+<h1 align="center">List of articles</h1>
+
+<table class="table table-sm table-hover">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @articles.each do |artykuly| %>
+    <tr>
+      <td style="width:200px"><%= link_to artykuly.title, article_path(artykuly) %></td>
+      <td  style="text-align:justify"><%= link_to truncate(artykuly.description, length: 100), article_path(artykuly) %></td>
+      <td>
+          <div class="btn-group" role="group">
+          <%= link_to "Edit", edit_article_path(artykuly), class: "btn btn-sm btn-success" %>
+          <%= link_to "Delete", article_path(artykuly), method: :delete, data: {confirm: "Are you sure?"},
+                                                                      class: "btn btn-sm btn-danger"  %>
+          </div>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,20 +1,21 @@
-<h1>Spis artykułów</h1>
+<h1 align="center">List of articles</h1>
 
-<%= link_to "Dodaj nowy artykuł", new_article_path %>
-<table style="width:100%; padding: 5px; border: 1px solid black;">
-    <tr>
-        <th>Tytuł</th>
-        <th>Opis</th>
-    </tr>
-    
-    <% @articles.each do |artykuly| %>
-        <tr>
-            <td><%= artykuly.title %></td>
-            <td><%= artykuly.description %></td>
-            <td><%= link_to "Edytuj", edit_article_path(artykuly) %></td>
-            <td><%= link_to "Pokaż", article_path(artykuly) %></td>
-            <td><%= link_to "Skasuj", article_path(artykuly), method: :delete, data: {confirm: "Jesteś pewny?"} %></td>
-        </tr>
-    <% end %>
-        
-</table>
+<% @articles.each do |artykuly| %>
+    <div class="card">
+        <div class="card-header bg-dark mb-3">
+            <table style="width:100%"><tr><td><%= link_to artykuly.title, article_path(artykuly), class: "article-title" %></td>
+            <td style="width:100px">
+              <div class="btn-group" role="group">
+              <%= link_to "Edit", edit_article_path(artykuly), class: "btn btn-sm btn-success" %>
+              <%= link_to "Delete", article_path(artykuly), method: :delete, data: {confirm: "Are you sure?"},
+                                                                      class: "btn btn-sm btn-danger"  %>
+              </div>
+            </td></tr></table>
+        </div>
+        <div class="card-body">
+            <%= link_to truncate(artykuly.description, length: 200), article_path(artykuly), class: "article-body" %>
+        </div>
+    </div>
+    <p></p>
+<% end %>
+

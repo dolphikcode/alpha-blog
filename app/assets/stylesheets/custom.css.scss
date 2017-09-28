@@ -46,6 +46,27 @@ h1 {
     background-color: red;
 }
 
+.article-actions {
+    border-top: 1px solid #eaeaea;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.article-title {
+    color: white;
+    text-decoration: none;     
+    font-weight: bold;
+}
+
+.article-body {
+    color: black;
+    text-decoration: none;     
+}
+
+.butt-right {
+     align: right;
+}
+
 footer {
     margin-top: 45px;
     padding-top: 5px;
@@ -56,3 +77,12 @@ footer {
 footer small {
     float: center;
 }
+
+/* td a, a:visited, a:hover {
+    color: white;
+    text-decoration: none;    
+}
+
+.article-index-head {
+    color: white;
+} */
