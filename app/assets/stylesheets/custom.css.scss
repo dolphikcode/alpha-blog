@@ -1,2 +1,58 @@
-@import "bootstrap-sprockets";
+/* $navbar-dark-hover-color:  #dc3545; */
+
 @import "bootstrap";
+
+h1 {
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+#logo { 
+    float: left;
+    font-size: 1.7;
+  /*  color: #08088A;
+    text-transform: uppercase; */
+    letter-spacing: -2px;
+    font-weight: bold;
+}
+
+#logo:hover {
+    color: yellow;
+    text-decoration: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.jumbotron {
+    background-image: asset-url('background-rails.jpg');
+    background-size: cover;
+    /* height: 500px; */
+}
+
+.jumbotron h1 {
+    margin-bottom: 30px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: green;
+}
+
+.btn-xlarge {
+    font-size: 1.7em;
+    background-color: black;
+}
+
+.btn-xlarge:hover {
+    background-color: red;
+}
+
+footer {
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 2px solid #eaeaea;
+    color: #777;
+}
+
+footer small {
+    float: center;
+}

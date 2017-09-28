@@ -1,23 +1,28 @@
-<% if @article.errors.any? %>
-<h2>Wystąpiły następujące błędy:</h2>
-    <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-    <% end %>
-    </ul>
-<% end %>
+<%= render 'shared/errors', obj: @article %>
 
-<%= form_for @article do |f| %>
-    <p>
-        <%= f.label :title %><br />
-        <%= f.text_field :title %>
-    </p>
-    <p>
-        <%= f.label :description %><br />
-        <%= f.text_area :description %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
-
-<% end %>
+<div class="row">
+    <div class="col-sm-12">
+        <%= form_for @article do |f| %>
+        <div class="form-group row">
+            <div class="col-form-label col-sm-2">
+                <%= f.label :title %>    
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :title, class: "form-control", placeholder: "Title of article", autofocus: true %>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-form-label col-sm-2">
+                <%= f.label :description %>    
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_area :description, class: "form-control", placeholder: "Content of the article", rows: "5" %>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3 ml-md-auto"><%= f.submit "Submit", class: "btn btn-primary" %></div>
+            <div class="col-auto mr-auto"><%= link_to "Cancel edit and return to articles list", articles_path, class: "btn btn-secondary", type: "button"%></div>
+        </div>       
+        <% end %>        
+    </div>
+</div>
