@@ -1,19 +1,23 @@
 <h1 align="center">List of articles</h1>
 
-<% @articles.each do |artykuly| %>
+<% @articles.each do |artykul| %>
     <div class="card">
         <div class="card-header bg-dark mb-3">
-            <table style="width:100%"><tr><td><%= link_to artykuly.title, article_path(artykuly), class: "article-title" %></td>
+            <table style="width:100%">
+            <tr>
+                <td><%= link_to artykul.title, article_path(artykul), class: "article-title" %>
+                        <small style="color: white;"> by <%= artykul.user.username %> (<%= artykul.created_at.strftime('%v') %>)</small>
+                </td>
             <td style="width:100px">
               <div class="btn-group" role="group">
-              <%= link_to "Edit", edit_article_path(artykuly), class: "btn btn-sm btn-success" %>
-              <%= link_to "Delete", article_path(artykuly), method: :delete, data: {confirm: "Are you sure?"},
+              <%= link_to "Edit", edit_article_path(artykul), class: "btn btn-sm btn-success" %>
+              <%= link_to "Delete", article_path(artykul), method: :delete, data: {confirm: "Are you sure?"},
                                                                       class: "btn btn-sm btn-danger"  %>
               </div>
             </td></tr></table>
         </div>
         <div class="card-body">
-            <%= link_to truncate(artykuly.description, length: 200), article_path(artykuly), class: "article-body" %>
+            <%= link_to truncate(artykul.description, length: 200), article_path(artykul), class: "article-body" %>
         </div>
     </div>
     <p></p>

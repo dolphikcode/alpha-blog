@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
    
    def create
       @article = Article.new(article_params)
+      @article.user = User.first
       if @article.save
           flash[:success] = "Article created"
           redirect_to article_path(@article)
@@ -39,6 +40,10 @@ class ArticlesController < ApplicationController
    end
    
    def show
+   end
+   
+   def indextab
+      @articles = Article.all
    end
    
 #===================================================================
