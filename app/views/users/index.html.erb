@@ -1,0 +1,16 @@
+<h1 align="center">Users list</h1>
+
+<div align="center">
+<div class="row">
+<% @users.each do |usr| %>
+            <div class="col-sm-4">
+                <div class="card" style="width: 15rem;">
+                    <div class="card-header  bg-dark mb-3"><%= link_to gravatar_for(usr, size: 150), user_path(usr) %></div>
+                    <div class="card-body">
+                        <%= link_to usr.username, user_path(usr) %> ( <%= pluralize(usr.articles.count, "article")  %> )
+                    </div>
+                </div>
+            </div>    
+<% end %>
+</div>
+</div>

@@ -1,5 +1,17 @@
 <div class="card">
-    <div class="card-header text-white bg-dark mb-3"><h2 class="card-title"><%= @article.title %></h2></div>
+    <div class="card-header text-white bg-dark mb-3">
+    <table style="width:100%">
+        <tr>
+            <td align="left" width="100">
+                <%= link_to gravatar_for(@article.user, size: 80), user_path(@article.user) %>
+            </td>
+            <td>
+                <h2 class="card-title"><%= @article.title %></h2>
+                <small style="color: white;"> by <%= @article.user.username %> (<%= @article.created_at.strftime('%v') %>)</small>
+            </td>
+        </tr>
+    </table>
+    </div>
     <div class="card-body">
         <%= @article.description %>
     </div>

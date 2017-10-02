@@ -27,6 +27,14 @@ class UsersController < ApplicationController
          render 'edit'
       end      
    end
+   
+   def show
+      @user_articles = @user.articles.paginate(page: params[:page], per_page: 3 )
+   end
+   
+   def index
+      @users = User.all
+   end
 
 #===================================================================
 # Sekcja private
