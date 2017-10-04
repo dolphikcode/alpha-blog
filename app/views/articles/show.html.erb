@@ -20,8 +20,10 @@
 <p></p>
 <div class="article-actions">
     <%= link_to "Return to articles list", articles_path, class: "btn btn-primary" %>
+    <% if logged_in? && current_user == @article.user %>
     <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-success" %>
     <%= link_to "Delete this article", article_path(@article), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+    <% end %>
 </div>   
 
 

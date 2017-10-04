@@ -13,6 +13,7 @@
     <tr>
       <td style="width:200px"><%= link_to artykuly.title, article_path(artykuly) %></td>
       <td  style="text-align:justify"><%= link_to truncate(artykuly.description, length: 100), article_path(artykuly) %></td>
+      <% if logged_in? && current_user == artykuly.user %>
       <td>
           <div class="btn-group" role="group">
           <%= link_to "Edit", edit_article_path(artykuly), class: "btn btn-sm btn-success" %>
@@ -20,6 +21,7 @@
                                                                       class: "btn btn-sm btn-danger"  %>
           </div>
       </td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
