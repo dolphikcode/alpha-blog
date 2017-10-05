@@ -8,6 +8,10 @@
                     <div class="card-header  bg-dark mb-3"><%= link_to gravatar_for(usr, size: 150), user_path(usr) %></div>
                     <div class="card-body">
                         <%= link_to usr.username, user_path(usr) %> ( <%= pluralize(usr.articles.count, "article")  %> )
+                        <% if logged_in? && current_user.admin? %>
+                           <br><%= link_to "Delete User", user_path(usr), method: :delete, 
+                                data: { confirm: "Are you sure you want to delete user: #{usr.username} and all his articles?" } %>
+                        <% end %>
                     </div>
                 </div>
             </div>    

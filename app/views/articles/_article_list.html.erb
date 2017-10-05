@@ -6,7 +6,7 @@
                 <td><%= link_to artykul.title, article_path(artykul), class: "article-title" %>
                         <small style="color: white;"> by <%= artykul.user.username %> (<%= artykul.created_at.strftime('%v') %>)</small>
                 </td>
-            <% if logged_in? && current_user == artykul.user %>
+            <% if logged_in? && (current_user == artykul.user or current_user.admin?) %>
             <td style="width:100px">
               <div class="btn-group" role="group">
               <%= link_to "Edit", edit_article_path(artykul), class: "btn btn-sm btn-success" %>
