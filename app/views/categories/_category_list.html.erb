@@ -1,0 +1,11 @@
+<% obj_category.each do |kategoria| %>
+    <div class="card">
+        <div class="card-header bg-dark mb-3">
+            <%= link_to kategoria.name, category_path(kategoria), class: "article-title" %>
+        </div>
+        <div class="card-body">
+            <%= link_to kategoria.name, category_path(kategoria) %>
+        </div>
+    </div>
+    <p></p>
+<% end %>
