@@ -8,6 +8,21 @@
       <li><%= link_to "Articles as cards", articles_path, class: "nav-link" %></li>
       <li><%= link_to "Articles as table", indextab_path, class: "nav-link" %></li>      
       <li><%= link_to "Users", users_path, class: "nav-link" %></li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <% if logged_in? and current_user.admin? %>
+              <%= link_to "Add category", new_category_path, class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+            <% end %>
+            <%= link_to "All Categories", categories_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <% Category.all.each do |categ| %>
+              <%= link_to "#{categ.name}", category_path(categ), class: "dropdown-item" %>
+            <% end %>
+          </div>
+      </li>
+
       <% if logged_in? %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
