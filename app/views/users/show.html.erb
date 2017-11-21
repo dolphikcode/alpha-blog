@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to <%= @user.username %>'s page</h1>
 
 <div class="row">
-    <p align="center"><%= gravatar_for @user, size: 150 %> <%= @user.email if @user == current_user or current_user.admin? %></p>
+    <p align="center"><%= gravatar_for @user, size: 150 %> <%= @user.email if logged_in? && (@user == current_user or current_user.admin?) %></p>
 </div>
 
 <h4 align="center"><%= @user.username %>'s articles</h4>
