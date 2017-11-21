@@ -1,11 +1,28 @@
 <% obj_category.each do |kategoria| %>
     <div class="card">
         <div class="card-header bg-dark mb-3">
-            <%= link_to kategoria.name, category_path(kategoria), class: "article-title" %>
-        </div>
-        <div class="card-body">
-            <%= link_to kategoria.name, category_path(kategoria) %>
+         <table style="width:100%">
+            <tr>
+                <td><%= link_to kategoria.name, category_path(kategoria), class: "article-title" %>
+            				<font style="color: white;">&nbsp;(<%= pluralize(kategoria.articles.count, "article") %>)</font>
+                </td>
+            <% if logged_in? && current_user.admin? %>
+            <td style="width:100px">
+              <div class="btn-group" role="group">
+              <%= link_to "Edit", edit_category_path(kategoria), class: "btn btn-sm btn-success" %>
+              <%= link_to "Delete", category_path(kategoria), method: :delete, data: {confirm: "Are you sure?"},
+                                                                      class: "btn btn-sm btn-danger"  %>
+              </div>
+            </td>
+						<% end %>
+          </tr></table>    
         </div>
     </div>
     <p></p>
 <% end %>
+
+
+
+
+
+           

@@ -10,6 +10,11 @@
                 <small style="color: white;"> by <%= @article.user.username %> (<%= @article.created_at.strftime('%v') %>)</small>
             </td>
         </tr>
+				<% if @article.categories.any? %>
+					<tr>
+						<th colspan="2">Categories: <%= render @article.categories %></th>
+					</tr>
+				<% end %>
     </table>
     </div>
     <div class="card-body">

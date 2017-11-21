@@ -1,1 +1,7 @@
 <h1 align="center">List of articles in category <%= @category.name %></h1>
+
+<% will_paginate @category_articles %>
+
+<%= render 'articles/article_list', obj_article: @category_articles %>
+
+<% will_paginate @category_articles %>

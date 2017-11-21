@@ -14,6 +14,11 @@
                                                                       class: "btn btn-sm btn-danger"  %>
               </div>
             </td>
+						<% end %>
+            <% if artykul.categories.any? %>
+							<tr>
+								<th colspan="2"><font style="color: white;">Categories:</font> <%= render artykul.categories %></th>
+							</tr>
             <% end %>
             </tr></table>
         </div>
