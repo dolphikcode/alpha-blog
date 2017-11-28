@@ -3,8 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
-# Use sqlite3 as the database for Active Record
-
+# WYSIWYG rails
+gem 'wysiwyg-rails', '~> 2.7', '>= 2.7.1'
+# Font awessome
+gem 'font-awesome-sass', '~> 4.7'
 # Use SCSS for stylesheets
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'sass-rails', '~> 5.0'
